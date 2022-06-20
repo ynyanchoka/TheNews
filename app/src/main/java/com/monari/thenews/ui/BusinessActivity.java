@@ -72,10 +72,50 @@ public class BusinessActivity extends AppCompatActivity {
             }
         });
         b3 = findViewById(R.id.btn3);
+        b3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(BusinessActivity.this, EntertainmentActivity.class);
+                startActivity(intent);
+
+            }
+        });
         b4 = findViewById(R.id.btn4);
+        b4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(BusinessActivity.this, HealthActivity.class);
+                startActivity(intent);
+
+            }
+        });
         b5 = findViewById(R.id.btn5);
+        b5.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(BusinessActivity.this, Science.class);
+                startActivity(intent);
+
+            }
+        });
         b6 = findViewById(R.id.btn6);
+        b6.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(BusinessActivity.this, SportsActivity.class);
+                startActivity(intent);
+
+            }
+        });
         b7 = findViewById(R.id.btn7);
+//        b7.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                Intent intent = new Intent(SportsActivity.this, TechActivity.class);
+//                startActivity(intent);
+//
+//            }
+//        });
 
 
 

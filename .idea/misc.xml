@@ -4,9 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_business.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_entertainment.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_health.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_science.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_sports.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/activity_tech.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/business_list_item.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/entertainmet_list_item.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/general_list_item.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/health_list_item.xml" value="0.32135416666666666" />
+        <entry key="app/src/main/res/layout/science_list_item.xml" value="0.32135416666666666" />
       </map>
     </option>
   </component>

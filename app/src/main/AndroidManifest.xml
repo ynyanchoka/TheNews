@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheNews">
         <activity
+            android:name=".ui.TechActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SportsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Science"
+            android:exported="false" />
+        <activity
+            android:name=".ui.HealthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.EntertainmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.BusinessActivity"
             android:exported="false" />
         <activity

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.BusinessActivity">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:id="@+id/horizontal_only">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="wrap_content"
+                android:text="General"
+                android:textSize="12sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"
+                android:layout_height="wrap_content">
+
+            </Button>
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="wrap_content"
+                android:text="Business"
+                android:textSize="12sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"
+                android:layout_height="wrap_content">
+
+            </Button>
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="wrap_content"
+                android:text="Entertainment"
+                android:textSize="12sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"
+                android:layout_height="wrap_content">
+
+            </Button>
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="wrap_content"
+                android:text="Health"
+                android:textSize="12sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"
+                android:layout_height="wrap_content">
+
+            </Button>
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="wrap_content"
+                android:text="Science"
+                android:textSize="12sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"
+                android:layout_height="wrap_content">
+
+            </Button>
+            <Button
+                android:id="@+id/btn6"
+                android:layout_width="wrap_content"
+                android:text="Sports"
+                android:textSize="12sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"
+                android:layout_height="wrap_content">
+
+            </Button>
+
+            <Button
+                android:id="@+id/btn7"
+                android:layout_width="wrap_content"
+                android:text="Technology"
+                android:textSize="12sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"
+                android:layout_height="wrap_content">
+
+            </Button>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/errorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
