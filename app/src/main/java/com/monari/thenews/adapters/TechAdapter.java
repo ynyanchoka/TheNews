@@ -69,7 +69,6 @@ public class TechAdapter extends RecyclerView.Adapter<TechAdapter.TechViewHolder
             mNewsSource.setText(article.getSource().getName());
             Picasso.get().load(article.getUrlToImage()).into(mNewsImageView);
 
-//            mNewsImageView.setText("Rating: " + restaurant.getRating() + "/5");
         }
     }
 }

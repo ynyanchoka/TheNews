@@ -1,5 +1,6 @@
 package com.monari.thenews;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,11 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.monari.thenews.adapters.NewsListAdapter;
 import com.monari.thenews.models.Article;
 import com.monari.thenews.models.NewsSearchResponse;
@@ -20,8 +23,11 @@ import com.monari.thenews.network.NewsClient;
 import com.monari.thenews.ui.BusinessActivity;
 import com.monari.thenews.ui.EntertainmentActivity;
 import com.monari.thenews.ui.HealthActivity;
+import com.monari.thenews.ui.SavedActivity;
 import com.monari.thenews.ui.Science;
+import com.monari.thenews.ui.SearchActivity;
 import com.monari.thenews.ui.SportsActivity;
+import com.monari.thenews.ui.TechActivity;
 
 import java.util.List;
 
@@ -111,14 +117,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         b7 = findViewById(R.id.btn7);
-//        b7.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent intent = new Intent(SportsActivity.this, TechActivity.class);
-//                startActivity(intent);
-//
-//            }
-//        });
+        b7.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, TechActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        // Initialize and assign variable
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
+
+        // Set Home selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        // Perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch(item.getItemId())
+                {
+                    case R.id.saved:
+                        startActivity(new Intent(getApplicationContext(), SavedActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        return true;
+                    case R.id.search:
+                        startActivity(new Intent(getApplicationContext(), SearchActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
 
 
 
