@@ -1,4 +1,4 @@
-package com.monari.thenews;
+package com.monari.thenews.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.monari.thenews.BuildConfig;
+import com.monari.thenews.MainActivity;
+import com.monari.thenews.R;
 import com.monari.thenews.adapters.NewsListAdapter;
 import com.monari.thenews.models.Article;
 import com.monari.thenews.models.NewsSearchResponse;
 import com.monari.thenews.network.NewsApi;
 import com.monari.thenews.network.NewsClient;
-import com.monari.thenews.ui.BusinessActivity;
 
 import java.util.List;
 
@@ -25,9 +27,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class BusinessActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName(); // returns the simple name of the underlying class as given in the source code.
+    private static final String TAG = BusinessActivity.class.getSimpleName(); // returns the simple name of the underlying class as given in the source code.
     @BindView(R.id.errorTextView)
     TextView mErrorTextView;
     @BindView(R.id.progressBar)
@@ -44,19 +46,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private NewsListAdapter mAdapter;
     Button b1,b2,b3,b4,b5,b6,b7;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_business);
         ButterKnife.bind(this);
+
 
         b1 = findViewById(R.id.btn1);
         b1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                Intent intent = new Intent(BusinessActivity.this, MainActivity.class);
                 startActivity(intent);
 
             }
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         b2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, BusinessActivity.class);
+                Intent intent = new Intent(BusinessActivity.this, BusinessActivity.class);
                 startActivity(intent);
 
             }
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         newsApi = NewsClient.getClient();
 
-        retrofit2.Call<NewsSearchResponse> call = newsApi.getNews("us","general",BuildConfig.NEWS_API_KEY);
+        retrofit2.Call<NewsSearchResponse> call = newsApi.getNews("us","business", BuildConfig.NEWS_API_KEY);
 
         call.enqueue(new retrofit2.Callback<NewsSearchResponse>() {
             @Override
@@ -94,10 +95,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     hideProgressBar();
 
                     articles = response.body().getArticles();
-                    mAdapter = new NewsListAdapter(MainActivity.this, articles);
+                    mAdapter = new NewsListAdapter(BusinessActivity.this, articles);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager =
-                            new LinearLayoutManager(MainActivity.this);
+                            new LinearLayoutManager(BusinessActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
 
@@ -135,9 +136,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mProgressBar.setVisibility(View.GONE);
     }
 
-    @Override
-    public void onClick(View view) {
-        Button button = (Button) view;
-        String category = button.getText().toString();
-    }
+
 }

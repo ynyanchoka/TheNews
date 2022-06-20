@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.monari.thenews.R;
@@ -19,27 +18,27 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsViewHolder> {
+public class BusinessListAdapter extends RecyclerView.Adapter<BusinessListAdapter.BusinessViewHolder>{
 
     private List<Article> mNews;
     private Context mContext;
 
-    public NewsListAdapter(Context context, List<Article> articles) {
+    public BusinessListAdapter(Context context, List<Article> articles) {
         mContext = context;
         mNews = articles;
     }
 
 
     @Override
-    public NewsListAdapter.NewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_list_item, parent, false);
-        NewsViewHolder viewHolder = new NewsViewHolder(view);
+    public BusinessListAdapter.BusinessViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.business_list_item, parent, false);
+        BusinessListAdapter.BusinessViewHolder viewHolder = new BusinessListAdapter.BusinessViewHolder(view);
         return viewHolder;
     }
 
 
     @Override
-    public void onBindViewHolder(NewsListAdapter.NewsViewHolder holder, int position) {
+    public void onBindViewHolder(BusinessListAdapter.BusinessViewHolder holder, int position) {
         holder.bindNews(mNews.get(position));
     }
 
@@ -48,7 +47,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
         return mNews.size();
     }
 
-    public class NewsViewHolder extends RecyclerView.ViewHolder {
+    public class BusinessViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.newsImageView)
         ImageView mNewsImageView;
         @BindView(R.id.newsSource)
@@ -59,7 +58,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
 
         private Context mContext;
 
-        public NewsViewHolder(View itemView) {
+        public BusinessViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
