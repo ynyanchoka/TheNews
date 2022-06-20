@@ -18,27 +18,27 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ScienceAdapter extends RecyclerView.Adapter<ScienceAdapter.ScienceViewHolder>{
+public class TechAdapter extends RecyclerView.Adapter<TechAdapter.TechViewHolder>{
 
     private List<Article> mNews;
     private Context mContext;
 
-    public ScienceAdapter(Context context, List<Article> articles) {
+    public TechAdapter(Context context, List<Article> articles) {
         mContext = context;
         mNews = articles;
     }
 
 
     @Override
-    public ScienceAdapter.ScienceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.general_list_item, parent, false);
-        ScienceAdapter.ScienceViewHolder viewHolder = new ScienceAdapter.ScienceViewHolder(view);
+    public TechAdapter.TechViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.business_list_item, parent, false);
+        TechAdapter.TechViewHolder viewHolder = new TechAdapter.TechViewHolder(view);
         return viewHolder;
     }
 
 
     @Override
-    public void onBindViewHolder(ScienceAdapter.ScienceViewHolder holder, int position) {
+    public void onBindViewHolder(TechAdapter.TechViewHolder holder, int position) {
         holder.bindNews(mNews.get(position));
     }
 
@@ -47,7 +47,7 @@ public class ScienceAdapter extends RecyclerView.Adapter<ScienceAdapter.ScienceV
         return mNews.size();
     }
 
-    public class ScienceViewHolder extends RecyclerView.ViewHolder {
+    public class TechViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.newsImageView)
         ImageView mNewsImageView;
         @BindView(R.id.newsSource)
@@ -58,7 +58,7 @@ public class ScienceAdapter extends RecyclerView.Adapter<ScienceAdapter.ScienceV
 
         private Context mContext;
 
-        public ScienceViewHolder(View itemView) {
+        public TechViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
@@ -69,6 +69,7 @@ public class ScienceAdapter extends RecyclerView.Adapter<ScienceAdapter.ScienceV
             mNewsSource.setText(article.getSource().getName());
             Picasso.get().load(article.getUrlToImage()).into(mNewsImageView);
 
+//            mNewsImageView.setText("Rating: " + restaurant.getRating() + "/5");
         }
     }
 }

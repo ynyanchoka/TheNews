@@ -108,14 +108,14 @@ public class BusinessActivity extends AppCompatActivity {
             }
         });
         b7 = findViewById(R.id.btn7);
-//        b7.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent intent = new Intent(SportsActivity.this, TechActivity.class);
-//                startActivity(intent);
-//
-//            }
-//        });
+        b7.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(BusinessActivity.this, TechActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
 
