@@ -17,6 +17,8 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.monari.thenews.Constants;
@@ -46,7 +48,16 @@ public class SavedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_saved);
         ButterKnife.bind(this);
 
-        mNewsReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ARTICLES);
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mNewsReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_ARTICLES)
+                .child(uid);
+
         setUpFirebaseAdapter();
         hideProgressBar();
         showNews();

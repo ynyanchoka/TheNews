@@ -34,6 +34,7 @@ public class Article {
     @SerializedName("content")
     @Expose
     private String content;
+    private String pushId;
 
     /**
      * No args constructor for use in serialization
@@ -127,6 +128,13 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content;
+    }
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 }
