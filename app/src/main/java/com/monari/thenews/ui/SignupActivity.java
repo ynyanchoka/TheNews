@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.monari.thenews.MainActivity;
@@ -78,17 +81,24 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         String password = muserPassword.getText().toString().trim();
         String confirmPassword = mUserConfirmPassword.getText().toString().trim();
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
+        boolean validEmail = isValidEmail(email);
+        boolean validName = isValidName(name);
+        boolean validPassword = isValidPassword(password, confirmPassword);
+        if (!validEmail || !validName || !validPassword) return;
 
-                        Log.d(TAG, "Authentication successful");
-                    } else {
-                        Toast.makeText(SignupActivity.this, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show();
-                    }
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
 
-                });
+                    Log.d(TAG, "Authentication successful");
+                } else {
+                    Toast.makeText(SignupActivity.this, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
     }
 
     private void createAuthStateListener() {
@@ -120,6 +130,40 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
+    }
+
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail =
+                (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (!isGoodEmail) {
+            Toast.makeText(SignupActivity.this, "Please enter a valid email",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return isGoodEmail;
+    }
+
+    private boolean isValidName(String name) {
+        if (name.equals("")) {
+            Toast.makeText(SignupActivity.this, "Please enter your name",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPassword(String password, String confirmPassword) {
+        if (password.length() < 6) {
+
+            Toast.makeText(SignupActivity.this, "Minimum 6 characters",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            Toast.makeText(SignupActivity.this, "Passwords do not match",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
 
