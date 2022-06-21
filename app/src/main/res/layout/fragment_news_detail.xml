@@ -17,13 +17,13 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@id/tv_news_source"
+                app:layout_constraintBottom_toBottomOf="@id/news_source"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_news_image" />
+                app:layout_constraintTop_toBottomOf="@id/news_image" />
 
             <ImageView
-                android:id="@+id/iv_news_image"
+                android:id="@+id/news_image"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:layout_constraintDimensionRatio="h,16:9"
@@ -32,19 +32,19 @@
                 android:src="@drawable/markus_winkler_aid_xyrtlec_unsplash"
                 android:scaleType="centerCrop"/>
 
-            <ImageButton
-                android:id="@+id/iv_save"
+            <Button
+                android:id="@+id/save"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginEnd="4dp"
                 android:background="?selectableItemBackgroundBorderless"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_time"
+                app:layout_constraintTop_toTopOf="@id/publishDate"
                 android:text="Save" />
 
 
             <TextView
-                android:id="@+id/tv_time"
+                android:id="@+id/publishDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -52,11 +52,11 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
-                app:layout_constraintTop_toBottomOf="@+id/tv_news_title"
+                app:layout_constraintTop_toBottomOf="@+id/news_title"
                 tools:text="@tools:sample/date/ddmmyy" />
 
             <TextView
-                android:id="@+id/tv_news_source"
+                android:id="@+id/news_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -65,11 +65,11 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
-                app:layout_constraintTop_toBottomOf="@id/tv_time"
+                app:layout_constraintTop_toBottomOf="@id/publishDate"
                 tools:text="The Washington Post" />
 
             <TextView
-                android:id="@+id/tv_news_title"
+                android:id="@+id/news_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -79,10 +79,10 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
-                app:layout_constraintTop_toBottomOf="@id/iv_news_image" />
+                app:layout_constraintTop_toBottomOf="@id/news_image" />
 
             <TextView
-                android:id="@+id/tv_news_desc"
+                android:id="@+id/news_desc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -92,20 +92,19 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
-                app:layout_constraintTop_toBottomOf="@id/tv_news_source"
+                app:layout_constraintTop_toBottomOf="@id/news_source"
                 tools:layout_editor_absoluteY="365dp" />
 
             <TextView
-                android:id="@+id/tv_news_content"
+                android:id="@+id/news_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:alpha="0.6"
                 android:lineSpacingMultiplier="1.3"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
-                app:layout_constraintTop_toBottomOf="@id/tv_news_desc"
+                app:layout_constraintTop_toBottomOf="@id/news_desc"
                 tools:text="Newsdvdsvdsvd" />
 
 
@@ -126,12 +125,6 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="12dp" />
 
-            <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/bottom_barrier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:barrierDirection="bottom"
-                app:constraint_referenced_ids="tv_news_desc,tv_news_content,tv_news_title" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

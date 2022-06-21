@@ -5,6 +5,9 @@ package com.monari.thenews.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Article {
 
     @SerializedName("source")

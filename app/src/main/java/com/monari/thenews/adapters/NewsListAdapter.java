@@ -1,6 +1,7 @@
 package com.monari.thenews.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.monari.thenews.R;
 import com.monari.thenews.models.Article;
+import com.monari.thenews.ui.NewsDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -48,7 +52,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
         return mNews.size();
     }
 
-    public class NewsViewHolder extends RecyclerView.ViewHolder {
+    public class NewsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.newsImageView)
         ImageView mNewsImageView;
         @BindView(R.id.newsSource)
@@ -63,6 +67,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindNews(Article article) {
@@ -70,7 +75,15 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
             mNewsSource.setText(article.getSource().getName());
             Picasso.get().load(article.getUrlToImage()).into(mNewsImageView);
 
-//            mNewsImageView.setText("Rating: " + restaurant.getRating() + "/5");
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, NewsDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("articles", Parcels.wrap(mNews));
+            mContext.startActivity(intent);
         }
     }
 }
