@@ -20,7 +20,6 @@ import com.monari.thenews.BuildConfig;
 import com.monari.thenews.MainActivity;
 import com.monari.thenews.R;
 import com.monari.thenews.adapters.NewsListAdapter;
-import com.monari.thenews.adapters.SearchListAdapter;
 import com.monari.thenews.models.Article;
 import com.monari.thenews.models.NewsSearchResponse;
 import com.monari.thenews.network.NewsApi;
@@ -31,7 +30,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
-import retrofit2.Response;
 
 public class SearchActivity extends AppCompatActivity {
     private static final String TAG = SearchActivity.class.getSimpleName(); // returns the simple name of the underlying class as given in the source code.
@@ -51,7 +49,7 @@ public class SearchActivity extends AppCompatActivity {
     public List<Article> articles;
     private Article mArticles;
     private NewsSearchResponse details;
-    private SearchListAdapter mAdapter;
+    private NewsListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +97,7 @@ public class SearchActivity extends AppCompatActivity {
                         hideProgressBar();
 
                         articles = response.body().getArticles();
-                        mAdapter = new SearchListAdapter(SearchActivity.this, articles);
+                        mAdapter = new NewsListAdapter(SearchActivity.this, articles);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);

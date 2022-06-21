@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheNews">
         <activity
+            android:name=".ui.NewsDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SavedActivity"
             android:exported="false" />
         <activity
