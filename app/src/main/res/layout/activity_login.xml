@@ -88,7 +88,6 @@
                 android:textColorHint="@color/colorSecondaryText" />
 
 
-
             <Button
                 android:id="@+id/idLoginButton"
                 android:layout_width="match_parent"
@@ -99,11 +98,12 @@
                 android:layout_marginEnd="50dp"
                 android:background="@drawable/btn"
                 android:text="Login"
+                android:textColor="@color/colorTextIcons"
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:fontFamily="@font/roboto"
-                app:backgroundTint="@color/colorOcean"/>
+                app:backgroundTint="@color/colorOcean"
+                app:fontFamily="@font/roboto" />
 
             <LinearLayout
                 android:id="@+id/or"
