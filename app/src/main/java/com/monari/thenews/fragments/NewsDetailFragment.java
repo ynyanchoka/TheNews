@@ -1,5 +1,7 @@
 package com.monari.thenews.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,9 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.monari.thenews.Constants;
 import com.monari.thenews.R;
 import com.monari.thenews.models.Article;
 import com.squareup.picasso.Picasso;
@@ -24,17 +31,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class NewsDetailFragment extends Fragment {
+public class NewsDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.news_image)
     ImageView mNewsImage;
     @BindView(R.id.save)
-    Button mSave;
+    ImageButton mSave;
     @BindView(R.id.publishDate)
     TextView mPublishDate;
     @BindView(R.id.news_source) TextView mNewsSource;
     @BindView(R.id.news_title) TextView mNewsTitle;
     @BindView(R.id.news_desc) TextView mNewsDesc;
     @BindView(R.id.news_content) TextView mNewsContent;
+    @BindView(R.id.readmore) TextView mReadmore;
 
 
 
@@ -71,6 +79,7 @@ public class NewsDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_news_detail, container, false);
         ButterKnife.bind(this, view);
+
         Picasso.get().load(mNews.getUrlToImage()).into(mNewsImage);
         mPublishDate.setText(mNews.getPublishedAt());
         mNewsSource.setText(mNews.getSource().getName());
@@ -78,6 +87,28 @@ public class NewsDetailFragment extends Fragment {
         mNewsDesc.setText(mNews.getDescription());
         mNewsContent.setText(mNews.getContent());
 
+        mReadmore.setOnClickListener(this);
+        mSave.setOnClickListener(this);
+
+
         return view;
     }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mReadmore) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mNews.getUrl()));
+            startActivity(webIntent);
+        }
+        if (v == mSave) {
+            DatabaseReference newsRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_ARTICLES);
+            newsRef.push().setValue(mNews);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 }

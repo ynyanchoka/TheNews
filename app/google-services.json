@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "149121381693",
+    "project_id": "thenews-8ce68",
+    "storage_bucket": "thenews-8ce68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149121381693:android:0f0ac81864612fbf9e4154",
+        "android_client_info": {
+          "package_name": "com.monari.thenews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149121381693-ak6gm495afj3hvmj52hn549vd55atoib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-z7ChPXyXwfS0KaLAuv1V3Kmu3OQEr1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149121381693-ak6gm495afj3hvmj52hn549vd55atoib.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
