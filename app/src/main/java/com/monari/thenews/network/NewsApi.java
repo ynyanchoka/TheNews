@@ -13,4 +13,9 @@ public interface NewsApi {
             @Query("category") String category,
             @Query("apiKey") String api_key
     );
+    @GET("everything")
+    Call<NewsSearchResponse> getEveryNews(
+            @Query("q") String query,
+            @Query("apiKey") String api_key
+    );
 }
