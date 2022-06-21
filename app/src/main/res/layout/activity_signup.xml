@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SignupActivity"
+    android:background="#DFDDED">
+
+
+    <TextView
+        android:id="@+id/WelcomeSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="Sign up here"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:fontFamily="@font/roboto" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/WelcomeSignUp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardBackgroundColor="@color/colorTextIcons"
+        app:cardElevation="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                android:drawableLeft="@drawable/baseline_badge_black_24dp"
+                android:drawablePadding="6dp"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                app:fontFamily="@font/roboto"
+                />
+
+
+            <EditText
+                android:id="@+id/userEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                app:fontFamily="@font/roboto"
+                android:drawableLeft="@drawable/baseline_email_black_24dp"
+                android:drawablePadding="6dp"
+                />
+
+            <!--edit text for user password-->
+            <EditText
+                android:id="@+id/userPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/userEmail"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
+                android:drawableLeft="@drawable/baseline_lock_black_24dp"
+                android:drawablePadding="6dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                app:fontFamily="@font/roboto" />
+
+            <EditText
+                android:id="@+id/userConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/userPassword"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
+                android:drawableLeft="@drawable/baseline_lock_black_24dp"
+                android:drawablePadding="6dp"
+                android:hint="Confirm password"
+                android:inputType="textPassword"
+                app:fontFamily="@font/roboto" />
+
+            <Button
+                android:id="@+id/idSignUpButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/userConfirmPassword"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/btn"
+                android:text="Sign up"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto"
+                app:backgroundTint="@color/colorOcean"/>
+
+            <LinearLayout
+                android:id="@+id/or"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_below="@id/idSignUpButton"
+                android:layout_marginStart="80dp"
+                >
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="5"
+                    android:background="@color/colorDivider" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textAlignment="center"
+                    android:text="OR"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorDivider" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="5"
+                    android:background="@color/colorDivider"
+                    />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/idLoginButton"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/linear"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:fontFamily="@font/roboto"
+                android:text="Already have an account? Log in"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textColor="@color/colorOcean"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/or"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/firebaseProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

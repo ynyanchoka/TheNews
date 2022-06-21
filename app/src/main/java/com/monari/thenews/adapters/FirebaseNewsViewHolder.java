@@ -39,22 +39,15 @@ public class FirebaseNewsViewHolder extends RecyclerView.ViewHolder implements V
 
     public void bindNews(Article article) {
         ImageView newsImageView = (ImageView) mView.findViewById(R.id.newsImageView);
-//        TextView dateTextView = (TextView) mView.findViewById(R.id.publishDate);
         TextView sourceTextView = (TextView) mView.findViewById(R.id.newsSource);
         TextView titleTextView = (TextView) mView.findViewById(R.id.titleNews);
-//        TextView descTextView = (TextView) mView.findViewById(R.id.news_desc);
-//        TextView contentTextView = (TextView) mView.findViewById(R.id.news_content);
-//        TextView readTextView = (TextView) mView.findViewById(R.id.readmore);
-//        ImageButton saveTextView = (ImageButton) mView.findViewById(R.id.save);
+
 
         Picasso.get().load(article.getUrlToImage()).into(newsImageView);
 
 
-//        dateTextView.setText(article.getPublishedAt());
         sourceTextView.setText(article.getSource().getName());
         titleTextView.setText(article.getTitle());
-//        descTextView.setText(article.getDescription());
-//        contentTextView.setText(article.getContent());
         titleTextView.setText(article.getTitle());
         titleTextView.setText(article.getTitle());
 
