@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.monari.thenews.adapters.NewsListAdapter;
 import com.monari.thenews.models.Article;
 import com.monari.thenews.models.NewsSearchResponse;
@@ -23,6 +26,7 @@ import com.monari.thenews.network.NewsClient;
 import com.monari.thenews.ui.BusinessActivity;
 import com.monari.thenews.ui.EntertainmentActivity;
 import com.monari.thenews.ui.HealthActivity;
+import com.monari.thenews.ui.LoginActivity;
 import com.monari.thenews.ui.SavedActivity;
 import com.monari.thenews.ui.Science;
 import com.monari.thenews.ui.SearchActivity;
@@ -217,5 +221,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         Button button = (Button) view;
         String category = button.getText().toString();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }
