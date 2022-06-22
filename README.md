@@ -1,8 +1,17 @@
 # The News
 By Ymelda Monari
 
+## Table of contents
++ [ Project Description](#Description)
++ [Getting Started](#getting_started)
++ [Running the tests](#tests)
++ [Built With](#setupinstallation-requirements)
++ [Authors](#authors)
++ [Contact Information](#contact-information)
++ [Copyright and License](#copyright-and-license-information)
+
 # Project Description
-This and android app written by java that allows a user to search for news, read news by different categories and also save news to watch later.
+This and android app written by java that allows a user to read news from different categories,search news and also save news to watch later.
 
 ## Getting Started
 
