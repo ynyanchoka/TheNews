@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#EFEEFA">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,7 +14,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:text="Saved "
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/colorDark"
+        android:fontFamily="@font/roboto"/>
 
 
 
@@ -33,7 +37,9 @@
         style="?android:actionBarTabTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/colorOcean"
+        />
     <TextView
         android:id="@+id/errorTextView"
         android:layout_width="wrap_content"
@@ -49,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        app:itemBackground="@color/teal_700"
+        app:itemBackground="@color/colorDark"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/menu_navigation" />

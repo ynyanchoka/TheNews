@@ -79,10 +79,10 @@ public class SavedActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.search:
-                        return true;
                     case R.id.saved:
-                        startActivity(new Intent(getApplicationContext(),SavedActivity.class));
+                        return true;
+                    case R.id.search:
+                        startActivity(new Intent(getApplicationContext(),SearchActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

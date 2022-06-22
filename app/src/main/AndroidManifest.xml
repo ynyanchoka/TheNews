@@ -11,11 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheNews">
-<!--        <activity-->
-<!--            android:name=".ui.LoginActivity"-->
-<!--            android:exported="false" />-->
+
         <activity
-            android:name="com.monari.thenews.ui.LoginActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
@@ -24,12 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
+         <activity
+         android:name=".ui.LoginActivity"
+         android:exported="false"
+             android:theme="@style/NoActionBarTheme"/>
         <activity
             android:name=".ui.SignupActivity"
             android:exported="false"
-            android:theme="@style/NoActionBarTheme"/>
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".ui.NewsDetailActivity"
             android:exported="false" />
