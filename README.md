@@ -2,10 +2,10 @@
 By Ymelda Monari
 
 ## Table of contents
-+ [ Project Description](#Description)
-+ [Getting Started](#getting_started)
-+ [Running the tests](#tests)
-+ [Built With](#setupinstallation-requirements)
++ [Project Description](#project-description)
++ [Getting Started](#getting-started)
++ [Running the tests](#running-the-tests)
++ [Built With](#bgituilt-With)
 + [Authors](#authors)
 + [Contact Information](#contact-information)
 + [Copyright and License](#copyright-and-license-information)
