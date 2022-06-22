@@ -1,64 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#EFEEFA">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:cardElevation="10dp"
-        android:elevation="8dp"
-        android:layout_marginTop="35dp"
-        >
+        android:background="?selectableItemBackground"
+        android:layout_margin="8dp"
+        tools:context=".ui.MainActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/titleNews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:minLines="3"
+            android:text="title here we are doing"
+            android:textSize="16sp"
+            android:textColor="@color/colorDark"
+            app:layout_constraintEnd_toStartOf="@id/iv_options"
+            app:layout_constraintStart_toEndOf="@id/newsImageView"
+            app:layout_constraintTop_toTopOf="@id/newsImageView"
+            />
 
-            <ImageView
-                android:id="@+id/newsImageView"
-                android:layout_width="162dp"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/markus_winkler_aid_xyrtlec_unsplash"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/newsImageView"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+           android:src="@drawable/markus_winkler_aid_xyrtlec_unsplash" />
 
-            <TextView
-                android:id="@+id/titleNews"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="News title"
-                app:fontFamily="@font/roboto"
-                android:textSize="18sp"
-                android:textColor="@color/colorDark"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/newsImageView"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/newsSource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Source"
+            android:textColor="@color/colorOcean"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/titleNews"
+            app:layout_constraintTop_toBottomOf="@id/titleNews" />
 
-            <TextView
-                android:id="@+id/newsSource"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:text="Source"
-                android:textColor="@color/colorOcean"
-                app:fontFamily="@font/roboto"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/newsImageView"
-                app:layout_constraintTop_toBottomOf="@+id/titleNews" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/iv_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/titleNews" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
-    </androidx.cardview.widget.CardView>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:background="#EFEEFA">-->
 
-</RelativeLayout>
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/cardView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        app:cardElevation="10dp"-->
+<!--        android:elevation="8dp"-->
+<!--        android:layout_marginTop="35dp"-->
+<!--        >-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/newsImageView"-->
+<!--                android:layout_width="162dp"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:src="@drawable/markus_winkler_aid_xyrtlec_unsplash"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/titleNews"-->
+<!--                android:layout_width="180dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:text="News title"-->
+<!--                app:fontFamily="@font/roboto"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textColor="@color/colorDark"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/newsImageView"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/newsSource"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:text="Source"-->
+<!--                android:textColor="@color/colorOcean"-->
+<!--                app:fontFamily="@font/roboto"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/newsImageView"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/titleNews" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    </androidx.cardview.widget.CardView>-->
+
+<!--</RelativeLayout>-->
+
